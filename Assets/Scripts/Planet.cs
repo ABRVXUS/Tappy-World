@@ -21,7 +21,6 @@ public class Planet : MonoBehaviour
     void OnMouseDown()
     {
         int temp;
-        bool person;
         //declare renderer for changing highlighted color to red
         var renderer = GetComponent<Renderer>();
         renderer.material.color = Color.green;
