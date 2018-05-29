@@ -357,7 +357,6 @@ MonoBehaviour:
   time: 0
   birth: 0
   death: 0
-  mult: 1
 --- !u!1 &1034413611
 GameObject:
   m_ObjectHideFlags: 0

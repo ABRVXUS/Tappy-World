@@ -9,11 +9,12 @@ public class Planet : MonoBehaviour
 {
     //declare variables for points and other planet based data
     public float mCount, fCount, ep, cp, sp, territoryNum, time, birth, death;
-    public float mult = 1;
 
 	// Use this for initialization
 	void Start()
     {
+        birth = 1;
+
         Load();
     }
 
@@ -21,19 +22,20 @@ public class Planet : MonoBehaviour
     void OnMouseDown()
     {
         int temp;
+
         //declare renderer for changing highlighted color to red
         var renderer = GetComponent<Renderer>();
         renderer.material.color = Color.green;
 
-        temp = UnityEngine.Random.Range(1, 11);
+        temp = (int)UnityEngine.Random.Range(0, 2);
 
-        if (temp == 0)
+        if (temp == 1)
         {
-            fCount += (fCount * mult);
+            fCount = fCount + birth;
         }
         else
         {
-            mCount += (mCount * mult);
+            mCount = mCount + birth;
         }
     }
 
@@ -51,7 +53,7 @@ public class Planet : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/PlanetInfo.jeff");
 
-        PlanetData data = new PlanetData(mCount, fCount, ep, cp, sp, territoryNum, time, mult);
+        PlanetData data = new PlanetData(mCount, fCount, ep, cp, sp, territoryNum, time, birth, death);
 
         bf.Serialize(file, data);
         file.Close();
@@ -78,18 +80,19 @@ public class Planet : MonoBehaviour
 [Serializable]
 class PlanetData
 {
-    public float mCount, fCount, ep, cp, sp, pop, territoryNum, time, mult;
+    public float mCount, fCount, ep, cp, sp, pop, territoryNum, time, birth, death;
 
     //retrieves variables to be stored in file
-    public PlanetData(float mC, float fC, float ePoint, float cPoint, float sPoint, float terrNum, float gameTime, float multiplier)
+    public PlanetData(float mC, float fC, float ePoint, float cPoint, float sPoint, float terrNum, float gameTime, float bRate, float dRate)
     {
         ep = ePoint;
         cp = cPoint;
         sp = sPoint;
         territoryNum = terrNum;
         time = gameTime;
-        mult = multiplier;
         mCount = mC;
         fCount = fC;
+        birth = bRate;
+        death = dRate;
     }
 }
