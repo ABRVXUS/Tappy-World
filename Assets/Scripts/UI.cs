@@ -16,22 +16,35 @@ public class UI : MonoBehaviour {
 
         //Creating all 7 buttons
         if (GUI.Button(new Rect(0, Screen.height - 150, buttonWidth, 25), "Population", buttonStyle))
-        { }
+        {
+            
+        }
         if (GUI.Button(new Rect(buttonWidth, Screen.height - 150, buttonWidth, 25), "Science/Research", buttonStyle))
-        { }
+        {
+
+        }
         if (GUI.Button(new Rect(buttonWidth * 2, Screen.height - 150, buttonWidth, 25), "EP", buttonStyle))
-        { }
+        {
+
+        }
         if (GUI.Button(new Rect(buttonWidth * 3, Screen.height - 150, buttonWidth, 25), "Upgrades", buttonStyle))
-        { }
+        {
+
+        }
         if (GUI.Button(new Rect(buttonWidth * 4, Screen.height - 150, buttonWidth, 25), "Economy", buttonStyle))
-        { }
+        {
+
+        }
         if (GUI.Button(new Rect(buttonWidth * 5, Screen.height - 150, buttonWidth, 25), "Timeline/Age", buttonStyle))
-        { }
+        {
+
+        }
         if (GUI.Button(new Rect(buttonWidth * 6, Screen.height - 150, buttonWidth, 25), "Traits", buttonStyle))
-        { }
+        {
+
+        }
 
         //create textFields
         GUI.TextField(new Rect(0, 0, Screen.width, 25), "");
-        
     }
 }
