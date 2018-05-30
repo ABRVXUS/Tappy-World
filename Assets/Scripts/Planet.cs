@@ -8,7 +8,8 @@ using System.IO;
 public class Planet : MonoBehaviour
 {
     //declare variables for points and other planet based data
-    public float mCount, fCount, ep, cp, sp, territoryNum, time, birth, death;
+    public float mCount, fCount, ep, cp, sp, territoryNum, days, birth, death;
+    Clock clock;
 
 	// Use this for initialization
 	void Start()
@@ -16,6 +17,8 @@ public class Planet : MonoBehaviour
         birth = 1;
 
         Load();
+
+        clock = new Clock(days);
     }
 
     //when mouse is clicked
@@ -50,10 +53,13 @@ public class Planet : MonoBehaviour
     //method to create/write to save game file at persistent data path
     public void Save()
     {
+        //retrive total days from game clock class
+        days = clock.getDays();
+
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/PlanetInfo.jeff");
 
-        PlanetData data = new PlanetData(mCount, fCount, ep, cp, sp, territoryNum, time, birth, death);
+        PlanetData data = new PlanetData(mCount, fCount, ep, cp, sp, territoryNum, days, birth, death);
 
         bf.Serialize(file, data);
         file.Close();
@@ -72,6 +78,14 @@ public class Planet : MonoBehaviour
 
             //assign variables
             ep = data.ep;
+            cp = data.cp;
+            sp = data.sp;
+            territoryNum = data.territoryNum;
+            days = data.days;
+            mCount = data.mCount;
+            fCount = data.fCount;
+            birth = data.birth;
+            death = data.death;
         }
     }
 }
@@ -80,16 +94,16 @@ public class Planet : MonoBehaviour
 [Serializable]
 class PlanetData
 {
-    public float mCount, fCount, ep, cp, sp, pop, territoryNum, time, birth, death;
+    public float mCount, fCount, ep, cp, sp, territoryNum, days, birth, death;
 
     //retrieves variables to be stored in file
-    public PlanetData(float mC, float fC, float ePoint, float cPoint, float sPoint, float terrNum, float gameTime, float bRate, float dRate)
+    public PlanetData(float mC, float fC, float ePoint, float cPoint, float sPoint, float terrNum, float gamedays, float bRate, float dRate)
     {
         ep = ePoint;
         cp = cPoint;
         sp = sPoint;
         territoryNum = terrNum;
-        time = gameTime;
+        days = gamedays;
         mCount = mC;
         fCount = fC;
         birth = bRate;
