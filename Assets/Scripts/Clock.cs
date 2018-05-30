@@ -20,8 +20,10 @@ public class Clock : MonoBehaviour
     void Start()
     {
         //instantiate timer (1 game day = 2 minutes). calls AddDay and restarts
-        timer = new Timer(TimeSpan.FromMinutes(2).TotalMilliseconds);
-        timer.AutoReset = true;
+        timer = new Timer(TimeSpan.FromMinutes(2).TotalMilliseconds)
+        {
+            AutoReset = true
+        };
         timer.Elapsed += new System.Timers.ElapsedEventHandler(AddDay);
         timer.Start();
     }

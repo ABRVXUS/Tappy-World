@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PopulationTab : MonoBehaviour {
+public class Upgrades : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

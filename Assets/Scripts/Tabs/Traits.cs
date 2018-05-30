@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EconTab : MonoBehaviour {
+public class Traits : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TraitsTab : MonoBehaviour {
+public class EP : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

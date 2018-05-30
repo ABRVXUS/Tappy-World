@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AgeTab : MonoBehaviour {
+public class Science : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradesTab : MonoBehaviour {
+public class Age : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
