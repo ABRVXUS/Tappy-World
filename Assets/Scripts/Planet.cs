@@ -8,13 +8,13 @@ using System.IO;
 public class Planet : MonoBehaviour
 {
     //declare variables for points and other planet based data
-    public float mCount, fCount, ep, cp, sp, territoryNum, days, birth, death;
+    public float mCount, fCount, ep, cp, sp, territoryNum, days, clickRate;
     Clock clock;
 
 	// Use this for initialization
 	void Start()
     {
-        birth = 1;
+        clickRate = 1;
 
         Load();
 
@@ -34,11 +34,11 @@ public class Planet : MonoBehaviour
 
         if (temp == 1)
         {
-            fCount = fCount + birth;
+            fCount = fCount + clickRate;
         }
         else
         {
-            mCount = mCount + birth;
+            mCount = mCount + clickRate;
         }
     }
 
@@ -59,7 +59,7 @@ public class Planet : MonoBehaviour
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/PlanetInfo.jeff");
 
-        PlanetData data = new PlanetData(mCount, fCount, ep, cp, sp, territoryNum, days, birth, death);
+        PlanetData data = new PlanetData(mCount, fCount, ep, cp, sp, territoryNum, days, clickRate);
 
         bf.Serialize(file, data);
         file.Close();
@@ -84,8 +84,7 @@ public class Planet : MonoBehaviour
             days = data.days;
             mCount = data.mCount;
             fCount = data.fCount;
-            birth = data.birth;
-            death = data.death;
+            clickRate = data.clickRate;
         }
     }
 }
@@ -94,10 +93,10 @@ public class Planet : MonoBehaviour
 [Serializable]
 class PlanetData
 {
-    public float mCount, fCount, ep, cp, sp, territoryNum, days, birth, death;
+    public float mCount, fCount, ep, cp, sp, territoryNum, days, clickRate;
 
     //retrieves variables to be stored in file
-    public PlanetData(float mC, float fC, float ePoint, float cPoint, float sPoint, float terrNum, float gamedays, float bRate, float dRate)
+    public PlanetData(float mC, float fC, float ePoint, float cPoint, float sPoint, float terrNum, float gamedays, float clickAdd)
     {
         ep = ePoint;
         cp = cPoint;
@@ -106,7 +105,6 @@ class PlanetData
         days = gamedays;
         mCount = mC;
         fCount = fC;
-        birth = bRate;
-        death = dRate;
+        clickRate = clickAdd;
     }
 }
