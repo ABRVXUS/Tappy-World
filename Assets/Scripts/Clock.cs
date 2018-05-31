@@ -1,17 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Timers;
 using System;
 
 public class Clock : MonoBehaviour
 {
     //create variable to store days and a timer
     public float totalDays;
-    Timer timer;
-    
+
     //retrieve and store total game days in save
-    public Clock(float daysPast)
+    public void SetDays(float daysPast)
     {
         totalDays = daysPast;
     }
@@ -20,7 +18,6 @@ public class Clock : MonoBehaviour
     void Start()
     {
         //instantiate timer (1 game day = 2 minutes). calls AddDay and restarts
-
         InvokeRepeating("AddDay", 0f, 120f);
     }
 
@@ -33,7 +30,7 @@ public class Clock : MonoBehaviour
     //stop game clock
     public void StopClock()
     {
-        timer.Stop();
+        CancelInvoke();
     }
 
     //return total game days for save file

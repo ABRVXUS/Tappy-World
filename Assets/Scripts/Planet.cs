@@ -9,16 +9,19 @@ public class Planet : MonoBehaviour
 {
     //declare variables for points and other planet based data
     public float mCount, fCount, ep, cp, sp, territoryNum, days, clickRate;
-    Clock clock;
+    public Clock clock;
 
 	// Use this for initialization
 	void Start()
     {
+        //make clickRate 1 by default. Instantiate clock the way that makes Unity happy
         clickRate = 1;
+        clock = FindObjectOfType(typeof(Clock)) as Clock;
 
         Load();
 
-        clock = new Clock(days);
+        //pass saved days to Clock
+        clock.SetDays(days);
     }
 
     //when mouse is clicked
