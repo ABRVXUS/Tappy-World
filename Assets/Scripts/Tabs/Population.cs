@@ -6,11 +6,13 @@ public class Population : MonoBehaviour
 {
     float pop;
 
+    //retrieve/calculate population
 	public Population(float mCount, float fCount)
     {
         pop = mCount + fCount;
     }
 	
+    //method for finding how many people are going to die
     public float PopCleanse()
     {
         float max, deathCount;
@@ -22,6 +24,7 @@ public class Population : MonoBehaviour
         return deathCount;
     }
 
+    //method for finding how many people are going to 
     public float PopIncrease(float gender)
     {
         float max, birthCount;

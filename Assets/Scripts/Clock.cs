@@ -20,16 +20,12 @@ public class Clock : MonoBehaviour
     void Start()
     {
         //instantiate timer (1 game day = 2 minutes). calls AddDay and restarts
-        timer = new Timer(TimeSpan.FromMinutes(2).TotalMilliseconds)
-        {
-            AutoReset = true
-        };
-        timer.Elapsed += new System.Timers.ElapsedEventHandler(AddDay);
-        timer.Start();
+
+        InvokeRepeating("AddDay", 0f, 120f);
     }
 
     //add one day
-    private void AddDay(object sender, EventArgs e)
+    private void AddDay()
     {
         totalDays++;
     }
