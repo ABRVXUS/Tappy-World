@@ -6,10 +6,9 @@ public class Population : MonoBehaviour
 {
     float pop;
 
-    //retrieve/calculate population
-	public Population(float mCount, float fCount)
+    void Start()
     {
-        pop = mCount + fCount;
+        pop = Planet.population;
     }
 	
     //method for finding how many people are going to die

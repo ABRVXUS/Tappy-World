@@ -34,7 +34,7 @@ public class Clock : MonoBehaviour
     }
 
     //return total game days for save file
-    public float getDays()
+    public float GetDays()
     {
         return totalDays;
     }

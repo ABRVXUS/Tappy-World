@@ -8,7 +8,8 @@ using System.IO;
 public class Planet : MonoBehaviour
 {
     //declare variables for points and other planet based data
-    public float mCount, fCount, ep, cp, sp, territoryNum, days, clickRate;
+    public static float mCount, fCount, ep, cp, sp, territoryNum, days, clickRate;
+    public static float population;
     public Clock clock;
 
 	// Use this for initialization
@@ -20,6 +21,7 @@ public class Planet : MonoBehaviour
 
         Load();
 
+        population = mCount + fCount;
         //pass saved days to Clock
         clock.SetDays(days);
     }
@@ -57,7 +59,7 @@ public class Planet : MonoBehaviour
     public void Save()
     {
         //retrive total days from game clock class
-        days = clock.getDays();
+        days = clock.GetDays();
 
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/PlanetInfo.jeff");
