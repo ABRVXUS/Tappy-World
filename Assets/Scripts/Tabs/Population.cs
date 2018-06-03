@@ -34,4 +34,5 @@ public class Population : MonoBehaviour
 
         return birthCount;
     }
+    
 }
